@@ -1,14 +1,21 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <h1>Rate Box</h1>
+  <RateBox v-model="rating" :editable="true" />
+  <p>Rating: {{ rating }}</p>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { ref } from "vue";
+import RateBox from "./components/RateBox.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    RateBox,
+  },
+  setup() {
+    const rating = ref(2);
+    return { rating };
   },
 };
 </script>
