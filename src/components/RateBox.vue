@@ -3,9 +3,12 @@
     <StarIcon
       v-for="index in 5"
       :key="index"
-      :class="{ filled: index <= (hoverValue || value) }"
+      :class="{
+        filled: index <= (hoverValue || value),
+        clickable: !editable,
+      }"
       @mouseover="editable ? onMouseOver(index) : null"
-      @mouseleave="editable ? onMouseLeave : null"
+      @mouseleave="editable ? onMouseLeave() : null"
       @click="editable ? onClick(index) : null"
     />
   </div>
@@ -53,6 +56,7 @@ export default {
     const onClick = (index) => {
       if (value.value === index) {
         emit("update:modelValue", 0);
+        hoverValue.value = null;
       } else {
         emit("update:modelValue", index);
       }
@@ -85,5 +89,9 @@ svg {
 
 svg.filled {
   fill: gold; /* Doldurulmuş yıldızlar için renk */
+}
+
+svg.clickable {
+  cursor: auto;
 }
 </style>
