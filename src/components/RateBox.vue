@@ -82,13 +82,13 @@ export default {
 
 svg {
   cursor: pointer;
-  fill: #333; /* Boş durum için renk */
+  fill: #333;
   width: 2rem;
   height: 2rem;
 }
 
 svg.filled {
-  fill: gold; /* Doldurulmuş yıldızlar için renk */
+  fill: gold;
 }
 
 svg.clickable {
